@@ -71,60 +71,10 @@
           }
         }
       }
-    },
-    "link-affiliate": {
-      "root": "apps/link-affiliate",
-      "sourceRoot": "apps/link-affiliate/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/link-affiliate",
-            "main": "apps/link-affiliate/src/main.ts",
-            "tsConfig": "apps/link-affiliate/tsconfig.app.json",
-            "assets": ["apps/link-affiliate/src/assets"]
-          },
-          "configurations": {
-            "production": {
-              "optimization": true,
-              "extractLicenses": true,
-              "inspect": false,
-              "fileReplacements": [
-                {
-                  "replace": "apps/link-affiliate/src/environments/environment.ts",
-                  "with": "apps/link-affiliate/src/environments/environment.prod.ts"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/node:execute",
-          "options": {
-            "buildTarget": "link-affiliate:build"
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/link-affiliate/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/link-affiliate"],
-          "options": {
-            "jestConfig": "apps/link-affiliate/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
     }
   },
   "cli": {
     "defaultCollection": "@nrwl/nest"
   },
-  "defaultProject": "link-affiliate"
+  "defaultProject": "api"
 }
