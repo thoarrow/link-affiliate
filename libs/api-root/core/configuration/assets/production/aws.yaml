@@ -1,0 +1,4 @@
+accessKey: accessKeyValue
+secretAccessKey: secretAccessKeyValue
+s3Bucket: s3BucketValue
+region: ap-southeast-1

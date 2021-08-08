@@ -1,0 +1,4 @@
+accessKey: accessKey
+secretAccessKey: secretAccessKey
+s3Bucket: sps-dev
+region: ap-southeast-1

@@ -33,6 +33,9 @@
     "api": {
       "tags": []
     },
+    "api-root": {
+      "tags": []
+    },
     "link-affiliate": {
       "tags": []
     }

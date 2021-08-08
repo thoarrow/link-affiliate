@@ -5,7 +5,7 @@ echo "* Prepare for build API *"
 echo "*************************"
 echo
 
-CONFIG_DIR="./libs/api-root/core/configuration/src/assets/production"
+CONFIG_DIR="./libs/api-root/core/configuration/assets/production"
 APP_CONFIG="${CONFIG_DIR}/app.yaml"
 AUTH_CONFIG="${CONFIG_DIR}/auth.yaml"
 AWS_CONFIG="${CONFIG_DIR}/aws.yaml"
@@ -58,48 +58,6 @@ if [[ "${?}" -ne 0 ]]; then
   exit 1
 fi
 
-# Config prisma schema
-PRISMA_SCHEMA_PATH="./prisma/schema.prisma"
-DEV_DATABASE_URL="mysql:\/\/root:spsroot@localhost:3306\/supershop"
-
-echo "--> Config database URL in prisma schema"
-sed -i "s|${DEV_DATABASE_URL}|${JAWSDB_URL}|" "${PRISMA_SCHEMA_PATH}"
-if [[ "${?}" -ne 0 ]]; then
-  echo "--> Error: Edit config ${PRISMA_SCHEMA_PATH} not success (url)."
-  exit 1
-fi
-
-# Config AWS
-echo "--> Config AWS access key"
-sed -i "s/accessKeyValue/${AWS_ACCESS_KEY}/" "${AWS_CONFIG}"
-if [[ "${?}" -ne 0 ]]; then
-  exit 1
-fi
-
-echo "--> Config AWS secret access key"
-sed -i "s|secretAccessKeyValue|${AWS_SECRET_ACCESS_KEY}|" "${AWS_CONFIG}"
-if [[ "${?}" -ne 0 ]]; then
-  exit 1
-fi
-
-echo "--> Config AWS S3 bucket"
-sed -i "s/s3BucketValue/${AWS_S3_BUCKET}/" "${AWS_CONFIG}"
-if [[ "${?}" -ne 0 ]]; then
-  exit 1
-fi
-
-# Config platform
-echo "--> Config Shopee partner ID"
-sed -i "s/shopeePartnerId/${SHOPEE_PARTNER_ID}}/" "${PLATFORM_CONFIG}"
-if [[ "${?}" -ne 0 ]]; then
-  exit 1
-fi
-
-echo "--> Config Shopee partner key"
-sed -i "s/shopeePartnerKey/${SHOPEE_PARTNER_KEY}}/" "${PLATFORM_CONFIG}"
-if [[ "${?}" -ne 0 ]]; then
-  exit 1
-fi
 
 # Generate prisma types
 echo "--> Generate prisma types"
