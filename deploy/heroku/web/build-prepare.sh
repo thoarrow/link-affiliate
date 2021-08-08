@@ -5,12 +5,12 @@ echo "* Prepare for build Web *"
 echo "*************************"
 echo
 
-ENV_FILE_PATH="./apps/web/.env"
+ENV_FILE_PATH="./apps/client/.env"
 
 # Config NEXTAUTH_URL server
 LOCAL_URL="http:\/\/localhost:3001"
-DEV_URL="https:\/\/supershopvn-pr-${HEROKU_PR_NUMBER}.herokuapp.com"
-PROD_URL="https:\/\/supershopvn.herokuapp.com"
+DEV_URL="https:\/\/super-linkaff-pr-${HEROKU_PR_NUMBER}.herokuapp.com"
+PROD_URL="https:\/\/super-linkaff.herokuapp.com"
 
 if [[ "${HEROKU_PR_NUMBER}" != "" ]]; then
   NEXTAUTH_URL="${DEV_URL}"
