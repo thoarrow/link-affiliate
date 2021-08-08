@@ -1,6 +1,6 @@
 mode: 'development'
-allowCors: 'http://localhost:3000'
+allowCors: 'http://localhost:3333'
 rootDir: 'api'
 graphqlSchema: 'schema.gql'
-port: 3000
-host: 'http://localhost:3000'
+port: 3333
+host: 'http://localhost:3333'
