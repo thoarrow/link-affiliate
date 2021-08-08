@@ -60,22 +60,22 @@ fi
 
 
 # Generate prisma types
-echo "--> Generate prisma types"
-yarn prisma generate
-if [[ "${?}" -ne 0 ]]; then
-  exit 1
-fi
+# echo "--> Generate prisma types"
+# yarn prisma generate
+# if [[ "${?}" -ne 0 ]]; then
+#   exit 1
+# fi
 
 # Deploy database
-echo "--> Deploy database"
-if [[ "${HEROKU_PR_NUMBER}" != "" ]]; then
-  yarn prisma migrate reset --force --skip-generate
-else
-  yarn prisma migrate deploy
-  yarn prisma db seed --preview-feature
-fi
-if [[ "${?}" -ne 0 ]]; then
-    exit 1
-fi
+# echo "--> Deploy database"
+# if [[ "${HEROKU_PR_NUMBER}" != "" ]]; then
+#   yarn prisma migrate reset --force --skip-generate
+# else
+#   yarn prisma migrate deploy
+#   yarn prisma db seed --preview-feature
+# fi
+# if [[ "${?}" -ne 0 ]]; then
+#     exit 1
+# fi
 
-exit 0
+# exit 0
