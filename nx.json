@@ -36,12 +36,30 @@
     "api-root": {
       "tags": []
     },
+    "api-root-core-authentication": {
+      "tags": []
+    },
+    "api-root-core-configuration": {
+      "tags": []
+    },
+    "api-root-core-graphql": {
+      "tags": []
+    },
+    "api-root-link": {
+      "tags": []
+    },
     "client": {
       "tags": []
     },
     "client-e2e": {
       "tags": [],
       "implicitDependencies": ["client"]
+    },
+    "client-root-core": {
+      "tags": []
+    },
+    "client-root-link": {
+      "tags": []
     }
   }
 }

@@ -15,7 +15,19 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@thoarrow/api-root": ["libs/api-root/src/index.ts"]
+      "@thoarrow/api-root": ["libs/api-root/src/index.ts"],
+      "@thoarrow/api-root/core/authentication": [
+        "libs/api-root/core/authentication/src/index.ts"
+      ],
+      "@thoarrow/api-root/core/configuration": [
+        "libs/api-root/core/configuration/src/index.ts"
+      ],
+      "@thoarrow/api-root/core/graphql": [
+        "libs/api-root/core/graphql/src/index.ts"
+      ],
+      "@thoarrow/api-root/link": ["libs/api-root/link/src/index.ts"],
+      "@thoarrow/client-root/core": ["libs/client-root/core/src/index.ts"],
+      "@thoarrow/client-root/link": ["libs/client-root/link/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

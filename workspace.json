@@ -72,6 +72,90 @@
         }
       }
     },
+    "api-root-core-authentication": {
+      "root": "libs/api-root/core/authentication",
+      "sourceRoot": "libs/api-root/core/authentication/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-root/core/authentication/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-root/core/authentication"],
+          "options": {
+            "jestConfig": "libs/api-root/core/authentication/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-root-core-configuration": {
+      "root": "libs/api-root/core/configuration",
+      "sourceRoot": "libs/api-root/core/configuration/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-root/core/configuration/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-root/core/configuration"],
+          "options": {
+            "jestConfig": "libs/api-root/core/configuration/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-root-core-graphql": {
+      "root": "libs/api-root/core/graphql",
+      "sourceRoot": "libs/api-root/core/graphql/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-root/core/graphql/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-root/core/graphql"],
+          "options": {
+            "jestConfig": "libs/api-root/core/graphql/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-root-link": {
+      "root": "libs/api-root/link",
+      "sourceRoot": "libs/api-root/link/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-root/link/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-root/link"],
+          "options": {
+            "jestConfig": "libs/api-root/link/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "client": {
       "root": "apps/client",
       "sourceRoot": "apps/client",
@@ -147,6 +231,86 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/client-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "client-root-core": {
+      "root": "libs/client-root/core",
+      "sourceRoot": "libs/client-root/core/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/client-root/core",
+            "tsConfig": "libs/client-root/core/tsconfig.lib.json",
+            "project": "libs/client-root/core/package.json",
+            "entryFile": "libs/client-root/core/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/client-root/core/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/client-root/core/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client-root/core"],
+          "options": {
+            "jestConfig": "libs/client-root/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "client-root-link": {
+      "root": "libs/client-root/link",
+      "sourceRoot": "libs/client-root/link/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/client-root/link",
+            "tsConfig": "libs/client-root/link/tsconfig.lib.json",
+            "project": "libs/client-root/link/package.json",
+            "entryFile": "libs/client-root/link/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/client-root/link/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/client-root/link/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/client-root/link"],
+          "options": {
+            "jestConfig": "libs/client-root/link/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

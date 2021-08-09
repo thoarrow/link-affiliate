@@ -1,0 +1,34 @@
+{
+  "projects": {
+    "user": {
+      "type": "library",
+      "root": "libs/api-root/user",
+      "entryFile": "index",
+      "sourceRoot": "libs/api-root/user/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/api-root/user/tsconfig.lib.json"
+      }
+    },
+    "link": {
+      "type": "library",
+      "root": "libs/api-root/link",
+      "entryFile": "index",
+      "sourceRoot": "libs/api-root/link/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/api-root/link/tsconfig.lib.json"
+      }
+    },
+    "core": {
+      "type": "library",
+      "root": "libs/api-root/core",
+      "entryFile": "index",
+      "sourceRoot": "libs/api-root/core/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/api-root/core/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
