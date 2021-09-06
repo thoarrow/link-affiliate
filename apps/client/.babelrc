@@ -1,4 +1,13 @@
 {
   "presets": ["@nrwl/next/babel"],
-  "plugins": []
+  "plugins": [
+    "babel-plugin-transform-typescript-metadata",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ]
+  ]
 }

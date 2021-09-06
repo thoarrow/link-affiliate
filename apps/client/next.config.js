@@ -1,22 +1,51 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const withNx = require('@nrwl/next/plugins/with-nx');
+const withAntdLess = require('next-plugin-antd-less');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
-const withLess = require('@zeit/next-less');
-
-/**
- * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
- **/
-const nextConfig = {
+module.exports = withNx({
   nx: {
-    // Set this to false if you do not want to use SVGR
-    // See: https://github.com/gregberge/svgr
     svgr: true,
   },
-  // Set this to true if you use CSS modules.
-  // See: https://github.com/css-modules/css-modules
-  cssModules: false,
-  // @zeit/next-less does not support webpack 5
-  webpack5: false,
-};
+  ...withAntdLess({
+    lessLoaderOptions: {
+      lessOptions: {
+        javascriptEnabled: true, // Because less-loader@5
+      },
+    },
+    cssLoaderOptions: {
+      modules: {
+        localIdentName:
+          process.env.MODE === 'production'
+            ? 'spl-[hash:base64:5]'
+            : 'spl-[local]__[hash:base64:5]',
+      },
+    },
+    env: {
+      NEXT_PUBLIC_SERVER_URL: process.env.NEXTAUTH_URL,
+      NEXT_PUBLIC_APP_MODE: process.env.APP_MODE,
+    },
+    webpack(config, { dev, isServer }) {
+      if (!dev && !isServer) {
+        // Replace React with Preact only in client production build
+        Object.assign(config.resolve.alias, {
+          react: 'preact/compat',
+          'react-dom/test-utils': 'preact/test-utils',
+          'react-dom': 'preact/compat',
+        });
+      }
 
-module.exports = withLess(withNx(nextConfig));
+      return config;
+    },
+    rewrites() {
+      return [
+        {
+          source: '/graphql',
+          destination: 'http://localhost:3000/graphql',
+        },
+      ];
+    },
+    ...withBundleAnalyzer({}),
+  }),
+});

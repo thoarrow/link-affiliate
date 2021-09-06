@@ -1,25 +1,26 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { ReactComponent as NxLogo } from '../public/nx-logo-white.svg';
-import './styles.less';
+import { AntdConfigProviderWrapper } from '@superlink/client-root/core/antd';
+import { AuthProviderWrapper } from '@superlink/client-root/core/authentication';
+import { IPage, IPageProps } from '@superlink/client-root/shared';
+import * as i18n from '@superlink/i18n';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+(async () => {
+  await i18n.init();
+})();
+
+const MyApp = ({
+  Component,
+  pageProps,
+}: {
+  Component: IPage;
+  pageProps: IPageProps;
+}) => {
   return (
-    <>
-      <Head>
-        <title>Welcome to client!</title>
-      </Head>
-      <div className="app">
-        <header className="flex">
-          <NxLogo width="75" height="50" />
-          <h1>Welcome to client!</h1>
-        </header>
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </div>
-    </>
+    <AntdConfigProviderWrapper {...pageProps}>
+      <AuthProviderWrapper>
+        <Component {...pageProps} />
+      </AuthProviderWrapper>
+    </AntdConfigProviderWrapper>
   );
-}
+};
 
-export default CustomApp;
+export default MyApp;

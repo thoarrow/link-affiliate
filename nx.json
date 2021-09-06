@@ -1,5 +1,5 @@
 {
-  "npmScope": "thoarrow",
+  "npmScope": "superlink",
   "affected": {
     "defaultBase": "master"
   },
@@ -58,7 +58,28 @@
     "client-root-core": {
       "tags": []
     },
+    "client-root-core-antd": {
+      "tags": []
+    },
+    "client-root-core-authentication": {
+      "tags": []
+    },
+    "client-root-core-graphql": {
+      "tags": []
+    },
     "client-root-link": {
+      "tags": []
+    },
+    "client-root-shared": {
+      "tags": []
+    },
+    "client-root-user": {
+      "tags": []
+    },
+    "i18n": {
+      "tags": []
+    },
+    "shared": {
       "tags": []
     }
   }

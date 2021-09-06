@@ -1,0 +1,48 @@
+@import '../../../../assets/styles/vars';
+
+.pageContentWrapper {
+  height: 100vh;
+
+  @media @phone-strict, @tablet-strict, @desktop-strict {
+    justify-content: center;
+  }
+
+  @media @tablet-strict, @desktop-strict {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  @media @wide-desktop {
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.accountContainer {
+  max-width: 441px !important;
+
+  @media @phone {
+    margin-right: 19px;
+    margin-left: 19px;
+  }
+
+  @media @wide-desktop {
+    margin: auto;
+  }
+}
+
+.accountContainerContent {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 30px 45px;
+}
+
+.logo {
+  margin-right: 10px;
+  padding: 5px 0 !important;
+}
+
+body {
+  background-color: @layout-body-background !important;
+}

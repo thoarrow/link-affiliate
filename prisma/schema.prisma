@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model User {
+  id                           String                         @id
+  email                        String                         @unique
+  fullname                     String
+  username                     String
+  password                     String
+  phoneNumber                  String?
+  createdAt                    DateTime                       @default(now())
+  updatedAt                    DateTime                       @default(now())
+  deletedAt                    DateTime?
+  products                     Product[]
+
+  @@map("user")
+}
+
+model Product {
+  id                           String                         @id
+  name                         String
+  links                        Link[]
+  userId                       String
+  createdAt                    DateTime                       @default(now())
+  updatedAt                    DateTime                       @default(now())
+  deletedAt                    DateTime?
+  user                         User                           @relation(fields: [userId], references: [id])
+
+  @@index([userId], name: "userId")
+  @@map("product")
+}
+
+model Link {
+  id                           String                         @id
+  productId                    String
+  origin                       String
+  affiliate                    String
+  utm_source                   String
+  utm_medium                   String
+  utm_campaign                 String
+  utm_content                  String
+  createdAt                    DateTime                       @default(now())
+  updatedAt                    DateTime                       @default(now())
+  deletedAt                    DateTime?
+  product                      Product   @relation(fields: [productId], references: [id])
+
+  @@index([productId], name: "productId")
+  @@map("link")
+}

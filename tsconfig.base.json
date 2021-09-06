@@ -15,19 +15,32 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@thoarrow/api-root": ["libs/api-root/src/index.ts"],
-      "@thoarrow/api-root/core/authentication": [
+      "@superlink/api-root": ["libs/api-root/src/index.ts"],
+      "@superlink/api-root/core/authentication": [
         "libs/api-root/core/authentication/src/index.ts"
       ],
-      "@thoarrow/api-root/core/configuration": [
+      "@superlink/api-root/core/configuration": [
         "libs/api-root/core/configuration/src/index.ts"
       ],
-      "@thoarrow/api-root/core/graphql": [
+      "@superlink/api-root/core/graphql": [
         "libs/api-root/core/graphql/src/index.ts"
       ],
-      "@thoarrow/api-root/link": ["libs/api-root/link/src/index.ts"],
-      "@thoarrow/client-root/core": ["libs/client-root/core/src/index.ts"],
-      "@thoarrow/client-root/link": ["libs/client-root/link/src/index.ts"]
+      "@superlink/api-root/link": ["libs/api-root/link/src/index.ts"],
+      "@superlink/client-root/core": ["libs/client-root/core/src/index.ts"],
+      "@superlink/client-root/core/antd": [
+        "libs/client-root/core/antd/src/index.ts"
+      ],
+      "@superlink/client-root/core/authentication": [
+        "libs/client-root/core/authentication/src/index.ts"
+      ],
+      "@superlink/client-root/core/graphql": [
+        "libs/client-root/core/graphql/src/index.ts"
+      ],
+      "@superlink/client-root/link": ["libs/client-root/link/src/index.ts"],
+      "@superlink/client-root/shared": ["libs/client-root/shared/src/index.ts"],
+      "@superlink/client-root/user": ["libs/client-root/user/src/index.ts"],
+      "@superlink/i18n": ["libs/i18n/src/index.ts"],
+      "@superlink/shared": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
