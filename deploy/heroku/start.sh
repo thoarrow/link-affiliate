@@ -14,6 +14,6 @@
 
 # Start
 log "Starting..."
-node dist/apps/api/main & next start dist/apps/web -p ${PORT}
+node dist/apps/api/main & next start dist/apps/client -p ${PORT}
 
 log "Done"
